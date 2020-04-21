@@ -29,7 +29,7 @@ from telethon.tl.types import (
 from userbot.utils import admin_cmd
 from userbot import ALIVE_NAME
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "GujjuBot"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Sassy Nikki"
 FILLED_UP_DADDY = "Invalid pack selected."
 
 @borg.on(admin_cmd(pattern="kang ?(.*)"))
@@ -51,27 +51,27 @@ async def _(event):
     pack = 1
     userid = event.from_id
     #packname = f"JayukeStickers"
-    #packshortname = f"GujjuBot_{userid}_ns"  # format: Uni_Borg_userid
-    if userid == 948408212:
+    #packshortname = f"Sassy Nikki_{userid}_ns"  # format: Uni_Borg_userid
+    if userid == 960491657:
         packname = f"JayukeStickers"
         packshortname = "Jayu_ke_locker_me"
     else:
-        packname = f"GujjuBot{userid}"
-        packshortname = f"GujjuBot_{userid}_ns"
+        packname = f"sassy nikki{userid}"
+        packshortname = f"sassy nikki_{userid}_ns"
     await event.edit("`Look dat way,it's a gurl!\nMeanwhile, lemme kang this stcker over hehe ヽ༼ ಠ益ಠ ༽ﾉ`")
 
     is_a_s = is_it_animated_sticker(reply_message)
-    file_ext_ns_ion = "GujjuBot_Sticker.png"
+    file_ext_ns_ion = "sassy nikki_Sticker.png"
     file = await borg.download_file(reply_message.media)
     uploaded_sticker = None
     if is_a_s:
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
         packname = f"{userid}'s @AnimatedStickersGroup"
-        if userid == 948408212:
+        if userid == 960491657:
             packshortname = "Jayu_Animated"
         else:
-            packshortname = f"GujjuBot_{userid}_an" # format: Uni_Borg_userid
+            packshortname = f"sassy nikki_{userid}_an" # format: Uni_Borg_userid
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
@@ -131,14 +131,14 @@ async def _(event):
                 while response.text == FILLED_UP_DADDY:
                     pack += 1
                     prevv = int(pack) - 1
-                    packname = f"{user.first_name}'s GujjuBot Vol.{pack}"
+                    packname = f"{user.first_name}'s sassy nikki Vol.{pack}"
                     packshortname = f"Vol_{pack}_with_{user.first_name}"
-                    #if userid == 948408212:
-                       # packname = f"{user.first_name}'s GujjuBot Vol.{pack}"
+                    #if userid == 960491657:
+                       # packname = f"{user.first_name}'s sassy nikki Vol.{pack}"
                        # packshortname = "Vol._{pack}_Jayu_ke_locker_me"
                    # else:
-                       # packname = f"Vol._{pack}_GujjuBot{userid}"
-                        #packshortname = f"Vol._{pack}_GujjuBot_{userid}_ns"
+                       # packname = f"Vol._{pack}_sassy nikki{userid}"
+                        #packshortname = f"Vol._{pack}_sassy nikki_{userid}_ns"
                     if not await stickerset_exists(bot_conv, packshortname):
                         await event.edit("**Pack No. **" + str(prevv) + "** full! Making a new Pack, Vol. **" + str(pack))
                         if is_a_s:
